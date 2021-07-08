@@ -1,1 +1,1 @@
-# algorithm-beginner
+# 모르면 검색하라!
