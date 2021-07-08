@@ -1,0 +1,62 @@
+```java
+package my.sds.algo;
+
+import java.io.*;
+import java.util.*;
+
+public class algo_9012 {
+    public static void main(String[] args) {
+        // var reset
+        int x = 0;
+        BufferedReader br = null;
+        StringBuilder sb = null;
+        Stack<Character> stack = new Stack<>();
+
+        try {
+            br = new BufferedReader(new InputStreamReader(System.in));
+            sb = new StringBuilder();
+            x = Integer.parseInt(br.readLine());
+
+            for (int i = 0; i < x; i++) {
+                sb.append(resolve(br.readLine())).append('\n');
+            }
+            System.out.println(sb);
+            // 잘 들어있는지 확인
+//            int size = ans.length;
+//            for (int i = 0; i < size; i++) {
+//                System.out.println(ans[i]);
+//            }
+//            System.out.println();
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String resolve(String token) {
+        Stack<Character> stack = new Stack<>();
+        boolean isVPS = true;
+
+        for (int i = 0; i < token.length(); i++) {
+            char c = token.charAt(i);
+
+            if (c == '(') {
+                stack.push(c);
+            } else if (stack.isEmpty()) {
+                return "NO";
+            } else {
+                stack.pop();
+            }
+        }
+
+        if (stack.isEmpty()) {
+            isVPS = true;
+            return "YES";
+        } else {
+            isVPS = false;
+            return "NO";
+        }
+    }
+}
+
+```
